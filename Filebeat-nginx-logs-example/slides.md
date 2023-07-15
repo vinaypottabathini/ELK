@@ -1,69 +1,43 @@
-%title: LEARN ELK
-%author: xavki
 
-# 04 FILEBEAT : our first beat example
 
-<br>
 
 Purposes :
 
-		* install filebeat on another server
+	* change elasticsearch configuration
 
-		* change elasticsearch configuration
+	* install nginx
 
-		* install nginx
-
-		* check the elasticsearch index in kibana
+	* check the elasticsearch index in kibana
 
 ------------------------------------------------------------------
 
-# 04 FILEBEAT : our first beat example
 
 
-<br>
 
-* filebeat > beats family (metricbeat, heartbeat...)
+* filebeat - beats family (metricbeat, heartbeat...)
 
-* filebeat > send logs directly in elasticsearch
+* filebeat - send logs directly in elasticsearch
 
 * without log transformation
 
-* better in this case > lighter thn logstash
+* better in this case > lighter than logstash
 
 ------------------------------------------------------------------
 
-# 04 FILEBEAT : our first beat example
-
-
-<br>
-
-* filebeat have many modules for specific softwares :
-		* nginx
-		* docker
-		* redis
-		* postgresql
-		...
-
-------------------------------------------------------------------
-
-# 04 FILEBEAT : our first beat example
-
-
-<br>
 
 * installation of filebeat
 
 ```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo apt-get install apt-transport-https
-echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.8.2-linux-x86_64.tar.gz
+tar xzvf filebeat-8.8.2-linux-x86_64.tar.gz
 sudo apt-get update
 sudo apt-get install filebeat
 ```
 
 ------------------------------------------------------------------
 
-# 04 FILEBEAT : our first beat example
 
 
 * change listen IP and seed_discovery on elasticsearch
@@ -78,10 +52,6 @@ sudo systemctl restart elasticsearch
 
 ------------------------------------------------------------------
 
-# 04 FILEBEAT : our first beat example
-
-
-<br>
 
 * install nginx
 
@@ -89,7 +59,7 @@ sudo systemctl restart elasticsearch
 sudo apt install nginx
 ```
 
-<br>
+
 
 * activate the nginx module
 
@@ -100,4 +70,4 @@ sudo filebeat modules enable nginx
 sudo systemctl restart filebeat
 ```
 
-* test
+* Test it in KIbana  -- filebeat-* datastream should be there
