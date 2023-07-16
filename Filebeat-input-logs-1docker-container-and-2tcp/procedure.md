@@ -60,6 +60,12 @@ filebeat.inputs:
   host: "localhost:9000"
 ```
 
+
+sudo netstat -ntaup
+nc
+echo "message text writing or field1 field2 field3" | nc ip_address 9000
+
+
 Documentation :
 https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-tcp.html
 
