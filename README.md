@@ -1,2 +1,2 @@
-# ELK
-Logstash - Filebeat - Metricbeat -Heartbeat -etc
+# ELK-Filebeats
+Filebeat - Logstash 
